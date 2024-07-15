@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'preferences/new'
+  get 'preferences/create'
+  get 'pages/home'
   get 'coffees/index'
   get 'coffees/show'
   get 'coffees/new'
