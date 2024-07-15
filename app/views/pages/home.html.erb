@@ -1,0 +1,11 @@
+<h1>Bienvenue sur notre application de sélection de cafés!</h1>
+
+<% if user_signed_in? %>
+  <p>Bienvenue <%= current_user.email %>!</p>
+  <%= link_to 'Voir mes préférences', preferences_new_path %>
+  <%= link_to 'Voir les cafés', coffees_path %>
+<% else %>
+  <p>Vous n'êtes pas connecté.</p>
+  <%= link_to 'S\'inscrire', new_user_registration_path %><br>
+  <%= link_to 'Se connecter', new_user_session_path %>
+<% end %>
