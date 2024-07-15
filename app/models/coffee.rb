@@ -7,4 +7,6 @@ class Coffee < ApplicationRecord
   validates :coffee_type, presence: true
   validates :machine_type, presence: true
   validates :name, uniqueness: { scope: [:origin, :roaster] }
+  has_many :preferences
+  has_many :users, through: :preferences
 end

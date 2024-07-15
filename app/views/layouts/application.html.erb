@@ -1,15 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>BaristApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>MyTools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  </head>
+  <!-- Intégration de Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Styles personnalisés -->
+  <style>
+    /* Ajoutez vos styles personnalisés ici */
+  </style>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <%= render 'shared/navbar' %> <!-- Inclusion de la vue partielle de la nav bar -->
+  <%= yield %>
+ 
+
+  <!-- Intégration de Bootstrap JS et des dépendances JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Script pour l'effet de navigation sur la barre de navigation -->
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-100%";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
+</body>
 </html>

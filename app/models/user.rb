@@ -9,6 +9,7 @@ class User < ApplicationRecord
     intermediaire: 'Intermédiaire',
     avance: 'Avancé'
   }
-
+  has_many :preferences
+  has_many :coffees, through: :preferences
   validates :level, presence: true, inclusion: { in: levels.keys }
 end
