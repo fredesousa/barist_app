@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  habits: MyText
+  machine_type: MyString
+  coffee_type: MyString
+  coffee: one
+
+two:
+  user: two
+  habits: MyText
+  machine_type: MyString
+  coffee_type: MyString
+  coffee: two

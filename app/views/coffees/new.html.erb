@@ -1,0 +1,56 @@
+<h1>New Coffee</h1>
+
+<%= form_with(model: @coffee, local: true) do |form| %>
+  <% if @coffee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@coffee.errors.count, "error") %> prohibited this coffee from being saved:</h2>
+
+      <ul>
+        <% @coffee.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :origin %>
+    <%= form.text_field :origin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :roaster %>
+    <%= form.text_field :roaster %>
+  </div>
+
+  <div class="field">
+    <%= form.label :strength %>
+    <%= form.number_field :strength %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coffee_type %>
+    <%= form.text_field :coffee_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :machine_type %>
+    <%= form.text_field :machine_type %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', coffees_path %>
