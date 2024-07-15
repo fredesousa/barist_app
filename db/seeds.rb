@@ -7,3 +7,15 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+User.destroy_all
+
+users = [
+  { email: "fredesousa7@gmail.com", password: 'password', level: "Débutant" },
+  { email: "amael.lathes@gmail.com", password: "password", level: "Intermédiaire" },
+  { email: "larrieu.aurelien@gmail.com", password: "password", level: "Avance" },
+  { email: "delvigjon@hotmail.fr", password: "password", level: "Débutant" },
+]
+
+User.create!(users)
+puts "Created #{User.count} users"
