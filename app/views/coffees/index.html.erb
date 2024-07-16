@@ -1,11 +1,13 @@
-<h1>Coffees</h1>
+<!-- app/views/preferences/index.html.erb -->
 
-<%= link_to 'New Coffee', new_coffee_path %>
+<h1>Cafés adaptés à vos préférences</h1>
 
-<ul>
-  <% @coffees.each do |coffee| %>
-    <li>
-      <%= link_to coffee.name, coffee_path(coffee) %>
-    </li>
-  <% end %>
-</ul>
+<% if @coffees.present? %>
+  <ul>
+    <% @coffees.each do |coffee| %>
+      <li><%= coffee.name %> - <%= coffee.description %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Aucun café correspondant à vos préférences n'a été trouvé.</p>
+<% end %>

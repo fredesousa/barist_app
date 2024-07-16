@@ -1,13 +1,16 @@
 class PreferencesController < ApplicationController
-  def new
-    @preference = Preference.new
-  end
+  before_action :authenticate_user!
 
   def create
     @preference = Preference.new(preference_params)
-    @preference.user = current_user
+    @preference.user_id = current_user.id
+
     if @preference.save
-      redirect_to coffees_path
+     
+      @coffees = Coffee.where(coffee_form: @preference.coffee_form, coffee_type: @preference.coffee_type)
+                       .where("weekly_consumption <= ?", @preference.weekly_consumption.to_i)
+
+      render 'coffees/index'
     else
       render :new
     end
@@ -16,6 +19,6 @@ class PreferencesController < ApplicationController
   private
 
   def preference_params
-    params.require(:preference).permit(:habits, :likes, :machine_type)
+    params.require(:preference).permit(:coffee_form, :weekly_consumption, :coffee_type)
   end
 end

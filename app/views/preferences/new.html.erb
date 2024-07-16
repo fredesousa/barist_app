@@ -1,2 +1,23 @@
-<h1>Preferences#new</h1>
-<p>Find me in app/views/preferences/new.html.erb</p>
+<!-- app/views/preferences/new.html.erb -->
+<h1>Choisissez vos préférences de café</h1>
+
+<%= form_with(model: @preference, url: user_preferences_path(current_user), local: true) do |form| %>
+  <div>
+    <%= form.label :coffee_form, "Forme de café" %><br>
+    <%= form.select :coffee_form, ['Capsule', 'Grain'] %>
+  </div>
+
+  <div>
+    <%= form.label :weekly_consumption, "Nombre de cafés par semaine" %><br>
+    <%= form.select :weekly_consumption, ['2', '4', 'Plus de 6'] %>
+  </div>
+
+  <div>
+    <%= form.label :coffee_type, "Type de café" %><br>
+    <%= form.select :coffee_type, ['Arabica', 'Robusta'] %>
+  </div>
+
+  <div>
+    <%= form.submit "Enregistrer" %>
+  </div>
+<% end %>
